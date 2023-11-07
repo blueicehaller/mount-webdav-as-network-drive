@@ -42,8 +42,9 @@ set /a RC=%ERRORLEVEL%
 
 :: https://ss64.com/nt/robocopy-exit.html
 
-if %RC% EQU 0 goto end
-if %RC% GTR 0 color 0C & pause
+:: if %RC% EQU 0 goto end
+:: if %RC% GTR 0 color 0C & pause
+if %RC% GTR 0 (color 0C & echo Errorlevel: %ERRORLEVEL% & goto :pingtarget) else (goto end)
 
 echo Errorlevel: %ERRORLEVEL%
 
